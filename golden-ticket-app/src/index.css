@@ -1,11 +1,106 @@
 @import "tailwindcss";
 
+@theme {
+  /* Golden ticket theme - warm amber/orange palette */
+  --color-background: hsl(45 20% 98%);
+  --color-foreground: hsl(30 15% 15%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(30 15% 15%);
+
+  /* Primary & Accent */
+  --color-primary: hsl(45 95% 50%);
+  --color-accent: hsl(35 100% 60%);
+
+  /* Muted and Neutral */
+  --color-muted: hsl(40 20% 94%);
+  --color-muted-foreground: hsl(30 10% 45%);
+
+  /* Status colors */
+  --color-status-open: hsl(142 76% 36%);
+  --color-status-in-progress: hsl(38 92% 50%);
+  --color-status-closed: hsl(0 0% 60%);
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, hsl(45 95% 50%) 0%, hsl(35 100% 60%) 100%);
+  --gradient-subtle: linear-gradient(180deg, hsl(45 90% 96%) 0%, hsl(0 0% 100%) 100%);
+
+  /* Shadows */
+  --shadow-card: 0 4px 20px -4px hsl(45 30% 60% / 0.15);
+  --shadow-golden: 0 10px 40px -10px hsl(45 95% 50% / 0.3);
+
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Status colors */
+    --status-open: 142 76% 36%;
+    --status-in-progress: 38 92% 50%;
+    --status-closed: 0 0% 60%;
+
+    --border: 45 30% 88%;
+    --input: 45 30% 88%;
+    --ring: 45 95% 50%;
+
+    --radius: 0.75rem;
+}
+
+/* 🌙 Dark mode */
+/* @theme dark {
+  --color-background: hsl(30 20% 10%);
+  --color-foreground: hsl(45 20% 95%);
+  --color-card: hsl(30 18% 14%);
+  --color-primary: hsl(45 95% 55%);
+  --color-accent: hsl(35 100% 55%);
+  --gradient-hero: linear-gradient(135deg, hsl(45 90% 40%) 0%, hsl(35 95% 45%) 100%);
+  --shadow-card: 0 4px 20px -4px hsl(45 30% 20% / 0.3);
+  --shadow-golden: 0 10px 40px -10px hsl(45 95% 30% / 0.5);
+} */
 
 body {
-  @apply bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 text-gray-800;
+  @apply bg-linear-to-br from-amber-50 via-orange-50 to-yellow-50 text-gray-800;
   font-family: 'Inter', sans-serif;
 }
 
 button {
   @apply transition-all duration-200;
+}
+
+/* 🎨 Utility classes */
+.bg-gradient-hero {
+  background: var(--gradient-hero);
+}
+
+.text-gradient-hero {
+  background: var(--gradient-hero);
+  background-clip:text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+
+
+.shadow-golden {
+  box-shadow: var(--shadow-golden);
+}
+
+.transition-smooth {
+  transition: var(--transition-smooth);
+}
+
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide-in {
+  animation: fade-slide-in 0.4s ease-out;
 }

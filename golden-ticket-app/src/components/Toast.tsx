@@ -11,8 +11,8 @@ const Toast: FC<ToastProps> = ({ message, type, onClose }) => (
   <div
     className={`fixed top-4 right-4 z-50 flex items-center gap-3 px-6 py-4 rounded-xl shadow-2xl backdrop-blur-sm animate-slide-in ${
       type === 'success'
-        ? 'bg-gradient-to-r from-amber-400 to-orange-500'
-        : 'bg-gradient-to-r from-red-400 to-pink-500'
+        ? 'bg-linear-to-r from-amber-400 to-orange-500'
+        : 'bg-linear-to-r from-red-400 to-pink-500'
     }`}
   >
     {type === 'success' ? (

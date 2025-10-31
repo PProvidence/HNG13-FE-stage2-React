@@ -1,6 +1,6 @@
-// Header.tsx
 import type { FC } from 'react';
-import { Ticket } from 'lucide-react';
+import { LogIn, Ticket } from 'lucide-react';
+import { Button } from './Button';
 
 interface HeaderProps {
   onLogin: () => void;
@@ -14,12 +14,15 @@ const Header: FC<HeaderProps> = ({ onLogin }) => (
         Golden Ticket
       </h1>
     </div>
-    <button
-      onClick={onLogin}
-      className="px-6 py-2 text-amber-700 font-medium hover:text-amber-900 transition"
-    >
-      Login
-    </button>
+        {/* Login Button */}
+        <Button
+          variant="outline"
+          onClick={onLogin}
+          className="gap-2 hover:bg-white hover:text-amber-500 transition flex items-center"
+        >
+          <LogIn className="w-4 h-4" />
+          LogIn
+        </Button>
   </header>
 );
 
